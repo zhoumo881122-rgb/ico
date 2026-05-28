@@ -231,6 +231,56 @@ const downloadPngs = document.querySelector("#downloadPngs");
 const copyHtml = document.querySelector("#copyHtml");
 const languageSelect = document.querySelector("#languageSelect");
 
+const seoMeta = {
+  en: {
+    title: "Favicon Generator - Create ICO, PNG, Apple Touch Icons Online | VagaTools",
+    description: "Free online favicon generator for ICO, PNG, Apple Touch Icon and web app icons. Upload an image, crop it, preview every size, and download browser-ready favicon files.",
+    keywords: "favicon generator, ico generator, favicon maker, create favicon, png to ico, jpg to ico, svg to ico, apple touch icon, website icon, free favicon tool"
+  },
+  "zh-CN": {
+    title: "Favicon图标生成器 - 在线制作ICO、PNG、苹果触摸图标 | VagaTools",
+    description: "免费在线Favicon图标生成器，支持PNG、JPG、WebP、SVG转ICO，裁剪预览后下载favicon.ico、网站图标和Apple Touch Icon。",
+    keywords: "favicon生成器, ico图标生成器, favicon在线制作, png转ico, jpg转ico, svg转ico, 网站图标制作, 网页图标生成器, 免费ico工具"
+  },
+  es: {
+    title: "Generador de Favicon - Crear ICO, PNG y Apple Touch Icon | VagaTools",
+    description: "Generador de favicon online gratis para crear favicon.ico, iconos PNG, Apple Touch Icon e iconos web desde PNG, JPG, WebP o SVG.",
+    keywords: "generador favicon, crear favicon, png a ico, jpg a ico, svg a ico, icono web, favicon online gratis"
+  },
+  fr: {
+    title: "Générateur de Favicon - Créer ICO, PNG et Apple Touch Icon | VagaTools",
+    description: "Générateur de favicon gratuit en ligne pour créer favicon.ico, icônes PNG, Apple Touch Icon et icônes web depuis PNG, JPG, WebP ou SVG.",
+    keywords: "générateur favicon, créer favicon, png vers ico, jpg vers ico, svg vers ico, icône site web, favicon gratuit"
+  },
+  de: {
+    title: "Favicon Generator - ICO, PNG und Apple Touch Icon erstellen | VagaTools",
+    description: "Kostenloser Online-Favicon-Generator für favicon.ico, PNG-Icons, Apple Touch Icon und Web-App-Icons aus PNG, JPG, WebP oder SVG.",
+    keywords: "favicon generator, favicon erstellen, png zu ico, jpg zu ico, svg zu ico, website icon erstellen, kostenloser ico generator"
+  },
+  ja: {
+    title: "Favicon 生成ツール - ICO、PNG、Apple Touch Icon を作成 | VagaTools",
+    description: "PNG、JPG、WebP、SVG から favicon.ico、PNG アイコン、Apple Touch Icon、Web アプリアイコンを作成できる無料オンラインツールです。",
+    keywords: "favicon 生成, ico 変換, png から ico, jpg から ico, svg から ico, サイトアイコン 作成, 無料 favicon ツール"
+  }
+};
+
+function setMeta(name, content, property = false) {
+  const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+  const node = document.querySelector(selector);
+  if (node) node.setAttribute("content", content);
+}
+
+function updateSeoMeta(lang) {
+  const meta = seoMeta[lang] || seoMeta.en;
+  document.title = meta.title;
+  setMeta("description", meta.description);
+  setMeta("keywords", meta.keywords);
+  setMeta("og:title", meta.title, true);
+  setMeta("og:description", meta.description, true);
+  setMeta("twitter:title", meta.title);
+  setMeta("twitter:description", meta.description);
+}
+
 function pickLanguage(value = "auto") {
   if (value !== "auto") return translations[value] ? value : "en";
   const nav = navigator.language || "en";
@@ -242,6 +292,7 @@ function pickLanguage(value = "auto") {
 function applyLanguage(value) {
   const lang = pickLanguage(value);
   document.documentElement.lang = lang;
+  updateSeoMeta(lang);
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.dataset.i18n;
     node.textContent = translations[lang][key] || translations.en[key] || node.textContent;

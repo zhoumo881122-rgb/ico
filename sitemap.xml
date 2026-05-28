@@ -13,4 +13,34 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://ico.vagatools.com/?lang=de"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://ico.vagatools.com/?lang=ja"/>
   </url>
+  <url>
+    <loc>https://ico.vagatools.com/?lang=en</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ico.vagatools.com/?lang=zh-CN</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ico.vagatools.com/?lang=es</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ico.vagatools.com/?lang=fr</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ico.vagatools.com/?lang=de</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ico.vagatools.com/?lang=ja</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

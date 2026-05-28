@@ -392,6 +392,30 @@ button:disabled {
   margin: 0 0 48px;
 }
 
+.seo-locales {
+  display: grid;
+  gap: 18px;
+  margin: 0 0 52px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+
+.seo-locales article {
+  display: grid;
+  gap: 8px;
+}
+
+.seo-locales h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.seo-locales p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 details {
   border-top: 1px solid var(--line);
   padding: 16px 0;
